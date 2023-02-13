@@ -1,0 +1,27 @@
+ //methode1
+ const isPalindrome = (val) => {
+ let str = stripNonAlphaNum(val);
+ if(str == null || str === undefined) return false;
+ 
+ let length = str.length;
+ if (length === 0 || length === 1) {
+   return true;
+ }
+ if (str[0] === str[length - 1]) {
+   return isPalindrome(str.slice(1, length - 1) );
+ } 
+ return false;
+};
+
+
+//methode2
+const isPalindrome =(val) => {
+ let str = stripNonAlphaNum(val);
+ if(str === null) return false;
+ for(let i = 0; i < str.length/2; i++) {
+   if(str[i] !== str[str.length - 1 - i]) {
+     return false;
+   }
+ }
+ return true;
+}
